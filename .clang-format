@@ -1,0 +1,14 @@
+BasedOnStyle: LLVM
+IndentWidth: 4
+ColumnLimit: 80
+
+# Put braces on new line
+BreakBeforeBraces: Allman
+
+# Disallow one-line functions
+AllowShortFunctionsOnASingleLine: None
+
+# Also disallow one-line if/loops
+AllowShortIfStatementsOnASingleLine: false
+AllowShortLoopsOnASingleLine: false
+AllowShortBlocksOnASingleLine: Never
