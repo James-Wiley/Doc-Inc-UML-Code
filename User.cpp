@@ -2,9 +2,11 @@
 #include <stdexcept>
 
 User::User(const std::string& username,
-           AuthService* auth_service)
+           AuthService* auth_service,
+           StatementRepository* statement_repo)
     : username_(username),
-      auth_service_(auth_service)
+      auth_service_(auth_service),
+      statement_repo_(statement_repo)
 {
 }
 
