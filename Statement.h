@@ -1,13 +1,15 @@
 #ifndef STATEMENT_H
 #define STATEMENT_H
 
+#include <string>
+
 class Statement {
 
 private:
-	String statementId;
+	std::string statementId;
 	Date issueDate;
-	String deliveryType;
-	String filePath;
+	std::string deliveryType;
+	std::string filePath;
 
 public:
 	void generate();

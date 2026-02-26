@@ -1,12 +1,14 @@
 #ifndef AUDITLOG_H
 #define AUDITLOG_H
 
+#include <string>
+
 class AuditLog {
 
 private:
-	Srring logId;
+	std::string logId;
 	DateTime timestamp;
-	String action;
+	std::string action;
 
 public:
 	void recordAccess();

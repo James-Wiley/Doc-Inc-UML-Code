@@ -1,12 +1,14 @@
 #ifndef NOTIFICATION_H
 #define NOTIFICATION_H
 
+#include <string>
+
 class Notification {
 
 private:
-	String notificationId;
+	std::string notificationId;
 	Date sentDate;
-	String type;
+	std::string type;
 
 public:
 	void sendEmail();

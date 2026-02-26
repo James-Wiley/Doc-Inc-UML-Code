@@ -1,10 +1,12 @@
 #ifndef PREFERENCE_H
 #define PREFERENCE_H
 
+#include <string>
+
 class Preference {
 
 private:
-	String deliveryMethod;
+	std::string deliveryMethod;
 	Date effectiveDate;
 
 public:

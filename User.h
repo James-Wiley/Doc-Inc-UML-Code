@@ -1,13 +1,15 @@
 #ifndef USER_H
 #define USER_H
 
+#include <string>
+
 class User {
 
 private:
-	String userID;
-	String email;
-	String phoneNumber;
-	String role;
+	std::string userID;
+	std::string email;
+	std::string phoneNumber;
+	std::string role;
 
 public:
 	void login();
