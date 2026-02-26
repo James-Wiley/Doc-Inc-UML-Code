@@ -18,4 +18,5 @@ target_link_libraries(tests
     GTest::gtest_main
 )
 
-add_test(NAME AllTests COMMAND tests)
+include(GoogleTest)
+gtest_discover_tests(tests)
