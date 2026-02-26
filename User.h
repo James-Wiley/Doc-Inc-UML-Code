@@ -2,21 +2,19 @@
 #define USER_H
 
 #include <string>
+#include "AuthService.h"
 
-class User {
+class User
+{
+public:
+    User(const std::string& username,
+         AuthService* auth_service);
+
+    bool login(const std::string& password);
 
 private:
-	std::string userID;
-	std::string email;
-	std::string phoneNumber;
-	std::string role;
-
-public:
-	void login();
-
-	void viewStatements();
-
-	void updatePreferences();
+    std::string username_;
+    AuthService* auth_service_;
 };
 
 #endif

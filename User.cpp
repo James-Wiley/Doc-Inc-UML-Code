@@ -1,16 +1,19 @@
 #include "User.h"
+#include <stdexcept>
 
-void User::login() {
-	// TODO - implement User::login
-	throw "Not yet implemented";
+User::User(const std::string& username,
+           AuthService* auth_service)
+    : username_(username),
+      auth_service_(auth_service)
+{
 }
 
-void User::viewStatements() {
-	// TODO - implement User::viewStatements
-	throw "Not yet implemented";
-}
+bool User::login(const std::string& password)
+{
+    if (!auth_service_->authenticate(username_, password))
+    {
+        throw std::runtime_error("Invalid credentials");
+    }
 
-void User::updatePreferences() {
-	// TODO - implement User::updatePreferences
-	throw "Not yet implemented";
+    return true;
 }
