@@ -1,5 +1,4 @@
 #include "User.h"
-#include <stdexcept>
 
 User::User(const std::string& username,
            AuthService* auth_service,
@@ -12,10 +11,16 @@ User::User(const std::string& username,
 
 bool User::login(const std::string& password)
 {
-    if (!auth_service_->authenticate(username_, password))
-    {
-        throw std::runtime_error("Invalid credentials");
-    }
+    if (!auth_service_)
+        return false;
 
-    return true;
+    return auth_service_->authenticate(username_, password);
+}
+
+std::vector<std::string> User::viewStatements()
+{
+    if (!statement_repo_)
+        return {};
+
+    return statement_repo_->getStatementsForUser(username_);
 }
