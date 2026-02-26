@@ -1,16 +1,30 @@
 #include "User.h"
+#include <stdexcept>
 
-void User::login() {
-	// TODO - implement User::login
-	throw "Not yet implemented";
+User::User(const std::string& username,
+           AuthService* auth_service,
+           StatementRepository* statement_repo)
+    : username_(username),
+      auth_service_(auth_service),
+      statement_repo_(statement_repo)
+{
 }
 
-void User::viewStatements() {
-	// TODO - implement User::viewStatements
-	throw "Not yet implemented";
+bool User::login(const std::string& password)
+{
+    if (!auth_service_)
+        throw std::runtime_error("Auth service unavailable");
+
+    if (!auth_service_->authenticate(username_, password))
+        throw std::runtime_error("Invalid credentials");
+
+    return true;
 }
 
-void User::updatePreferences() {
-	// TODO - implement User::updatePreferences
-	throw "Not yet implemented";
+std::vector<std::string> User::viewStatements()
+{
+    if (!statement_repo_)
+        return {};
+
+    return statement_repo_->getStatementsForUser(username_);
 }
