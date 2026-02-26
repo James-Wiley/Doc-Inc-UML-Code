@@ -4,8 +4,7 @@
 #include <string>
 #include <vector>
 #include "AuthService.h"
-
-class StatementRepository;  // forward declare
+#include "StatementRepository.h"
 
 class User
 {
