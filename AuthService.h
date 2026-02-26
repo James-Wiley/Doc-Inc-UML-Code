@@ -6,8 +6,10 @@
 class AuthService
 {
 public:
-    bool authenticate(const std::string& username,
-                      const std::string& password);
+    virtual bool authenticate(const std::string& username,
+                              const std::string& password) = 0;
+
+    virtual ~AuthService() = default;
 };
 
 #endif

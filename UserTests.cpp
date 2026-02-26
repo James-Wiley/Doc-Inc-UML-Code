@@ -10,7 +10,8 @@ class MockAuthService : public AuthService
 {
 public:
     MOCK_METHOD(bool, authenticate,
-                (const std::string&, const std::string&),
+                (const std::string& username,
+                 const std::string& password),
                 (override));
 };
 
